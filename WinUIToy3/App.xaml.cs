@@ -1,50 +1,92 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
-using Microsoft.UI.Xaml.Shapes;
-using Windows.ApplicationModel;
-using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using System;
+using WinUIEx;
+using WinUIToy3.Contracts.Services;
+using WinUIToy3.Core.Contracts.Services;
+using WinUIToy3.Core.Services;
+using WinUIToy3.Services;
+using WinUIToy3.ViewModels;
+using WinUIToy3.Views;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace WinUIToy3
+namespace WinUIToy3;
+
+/// <summary>
+/// Provides application-specific behavior to supplement the default Application class.
+/// </summary>
+public partial class App : Application
 {
-    /// <summary>
-    /// Provides application-specific behavior to supplement the default Application class.
-    /// </summary>
-    public partial class App : Application
+    public IHost Host
     {
-        private Window? _window;
+        get;
+    }
 
-        /// <summary>
-        /// Initializes the singleton application object.  This is the first line of authored code
-        /// executed, and as such is the logical equivalent of main() or WinMain().
-        /// </summary>
-        public App()
+    public static T GetService<T>() where T : class
+    {
+        if ((App.Current as App)!.Host.Services.GetService(typeof(T)) is not T service)
         {
-            InitializeComponent();
+            throw new InvalidOperationException($"Service of type {typeof(T).FullName} is not registered.");
         }
 
-        /// <summary>
-        /// Invoked when the application is launched.
-        /// </summary>
-        /// <param name="args">Details about the launch request and process.</param>
-        protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
-        {
-            _window = new MainWindow();
-            _window.Activate();
-        }
+        return service;
+    }
+
+    public static WindowEx MainWindow { get; } = new MainWindow();
+
+    public static UIElement? AppTitlebar { get; set; }
+
+    /// <summary>
+    /// Initializes the singleton application object.  This is the first line of authored code
+    /// executed, and as such is the logical equivalent of main() or WinMain().
+    /// </summary>
+    public App()
+    {
+        InitializeComponent();
+
+        Host = Microsoft
+                .Extensions
+                .Hosting
+                .Host
+                .CreateDefaultBuilder()
+                .UseContentRoot(AppContext.BaseDirectory)
+                .ConfigureServices((context, services) =>
+                {
+                    // Register application services here
+
+                    // Singleton services are created once and shared throughout the application lifetime.
+                    services.AddSingleton<IActivationService, ActivationService>();
+                    services.AddSingleton<INavigationService, NavigationService>();
+                    services.AddSingleton<IPageService, PageService>();
+                    services.AddSingleton<INavigationViewService, NavigationViewService>();
+                    services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
+                    services.AddSingleton<ILocalSettingsService, LocalSettingsService>();
+                    services.AddSingleton<IFileService, FileService>();
+
+                    // Views and ViewModels
+                    services.AddTransient<SettingsPage>();
+                    services.AddTransient<SettingsViewModel>();
+                    services.AddTransient<ShellPage>();
+                    services.AddTransient<ShellViewModel>();
+                }).Build();
+        UnhandledException += App_UnhandledException;
+    }
+
+    private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
+    {
+        // TOODO : Handle unhandled exceptions
+    }
+
+    /// <summary>
+    /// Invoked when the application is launched.
+    /// </summary>
+    /// <param name="args">Details about the launch request and process.</param>
+    protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
+    {
+        base.OnLaunched(args);
+        await App.GetService<IActivationService>().ActivateAsync(args);
     }
 }
