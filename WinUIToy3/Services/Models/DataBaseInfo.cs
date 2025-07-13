@@ -18,6 +18,8 @@ public class DataBaseInfo
 
     public string PageId { get; set; } = string.Empty;
 
+    public bool IsEnabled { get; set; } = true;
+
     public bool UsexUid { get; set; }
 
 }

@@ -71,6 +71,11 @@ public partial class App : Application
                     services.AddTransient<SettingsViewModel>();
                     services.AddTransient<ShellPage>();
                     services.AddTransient<ShellViewModel>();
+
+                    services.AddTransient<SchoolPage>();
+                    services.AddTransient<SchoolViewModel>();
+                    services.AddTransient<SubjectPage>();
+                    services.AddTransient<SubjectViewModel>();
                 }).Build();
         UnhandledException += App_UnhandledException;
     }

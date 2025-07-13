@@ -29,6 +29,8 @@ public class PageService : IPageService
     public PageService()
     {
         Configure<SettingsViewModel, SettingsPage>();
+        Configure<SubjectViewModel, SubjectPage>();
+        Configure<SchoolViewModel, SchoolPage>();
     }
 
     private void Configure<VM, V>()

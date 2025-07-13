@@ -6,6 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using WinUIToy3.Contracts.Services;
 using WinUIToy3.Helpers;
+using WinUIToy3.Services.Models;
 using WinUIToy3.ViewModels;
 
 namespace WinUIToy3.Services;
@@ -50,6 +51,7 @@ public class NavigationViewService : INavigationViewService
         Reset();
         _navigationView = navigationView ?? throw new ArgumentNullException(nameof(navigationView));
         AddNavigationMenuItems();
+
         _navigationView.BackRequested += OnBackRequested;
         _navigationView.ItemInvoked += OnItemInvoked;
     }
@@ -77,6 +79,7 @@ public class NavigationViewService : INavigationViewService
                 Content = group.Title,
                 IsExpanded = group.IsExpanded,
                 Tag = group.UniqueId,
+                IsEnabled = group.IsEnabled,
                 DataContext = group
             };
 
@@ -92,6 +95,7 @@ public class NavigationViewService : INavigationViewService
                 {
                     Content = item.Title,
                     Tag = item.UniqueId,
+                    IsEnabled = item.IsEnabled,
                     DataContext = item,
                 };
 
@@ -104,6 +108,9 @@ public class NavigationViewService : INavigationViewService
             }
             _navigationView?.MenuItems.Add(itemGroup);
         }
+
+
+
     }
 
     private IconElement GetIcon(string imagePath, string iconGlyph)
@@ -148,24 +155,54 @@ public class NavigationViewService : INavigationViewService
         }
         else
         {
-            var selectedItem = args.InvokedItemContainer as NavigationViewItem;
+            if( args.InvokedItemContainer is NavigationViewItem selectedItem &&
+                selectedItem.DataContext is DataBaseInfo dataInfo)
+            {
+                if (dataInfo.IsEnabled == false) return;
 
-            if (selectedItem?.GetValue(NavigationHelper.NavigateToProperty) is string pageKey)
-            {
-                var pageType = _pageService.GetPageType(pageKey);
-                if (pageType != null)
+                if (string.IsNullOrEmpty(dataInfo.PageId)) return;
+
+                try
                 {
-                    _navigationService.NavigateTo(pageType.FullName!);
+                    var pageKey = dataInfo.PageId;
+                    _navigationService.NavigateTo(pageKey);
+                    //var pageType = _pageService.GetPageType(pageKey);
+                    //if (pageType != null)
+                    //{
+                    //    _navigationService.NavigateTo(pageType.FullName!);
+                    //}
+                    //else
+                    //{
+                    //    Debug.WriteLine($"Page type for key '{pageKey}' not found.");
+                    //}
                 }
-                else
+                catch (Exception ex)
                 {
-                    Debug.WriteLine($"Page type for key '{pageKey}' not found.");
+                    Debug.WriteLine($"Error navigating to page: {ex.Message}");
+                    return;
                 }
+               
             }
-            else
-            {
-                Debug.WriteLine("Selected item does not have a valid NavigateTo property.");
-            }
+
+
+            //var selectedItem = args.InvokedItemContainer as NavigationViewItem;
+
+            //if (selectedItem?.GetValue(NavigationHelper.NavigateToProperty) is string pageKey)
+            //{
+            //    var pageType = _pageService.GetPageType(pageKey);
+            //    if (pageType != null)
+            //    {
+            //        _navigationService.NavigateTo(pageType.FullName!);
+            //    }
+            //    else
+            //    {
+            //        Debug.WriteLine($"Page type for key '{pageKey}' not found.");
+            //    }
+            //}
+            //else
+            //{
+            //    Debug.WriteLine("Selected item does not have a valid NavigateTo property.");
+            //}
         }
     }
 
