@@ -1,0 +1,46 @@
+﻿{
+  "Groups": [
+
+    {
+      "UniqueId": "Home",
+      "PageId": "WinUiToy3.Views.HomePage",
+      "Title": "처음으로",
+      "ImagePath": "ms-appx:///Assets/NavViewMenu/Icons/Home.png",
+      "Items": [
+        {
+          "UniqueId": "Menu11",
+          "PageId": "WinUiToy3.Views.HomePage",
+          "Title": "메뉴11",
+          "ImagePath": "ms-appx:///Assets/NavViewMenu/Icons/awake.png"
+        },
+        {
+          "UniqueId": "Menu12",
+          "PageId": "WinUiToy3.Views.SettingsPage",
+          "Title": "메뉴12",
+          "ImagePath": "ms-appx:///Assets/NavViewMenu/Icons/color.png"
+        }
+      ]
+    },
+
+    {
+      "UniqueId": "Home2",
+      "PageId": "WinUiToy3.Views.HomePage",
+      "Title": "두번째",
+      "ImagePath": "ms-appx:///Assets/NavViewMenu/Icons/DatePicker.png",
+      "Items": [
+        {
+          "UniqueId": "Menu21",
+          "PageId": "WinUiToy3.Views.HomePage",
+          "Title": "메뉴21",
+          "ImagePath": "ms-appx:///Assets/NavViewMenu/Icons/info.png"
+        },
+        {
+          "UniqueId": "Menu22",
+          "PageId": "WinUiToy3.Views.SettingsPage",
+          "Title": "메뉴22",
+          "ImagePath": "ms-appx:///Assets/NavViewMenu/Icons/logo.png"
+        }
+      ]
+    }
+  ]
+}

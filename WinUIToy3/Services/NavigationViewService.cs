@@ -41,9 +41,103 @@ public class NavigationViewService : INavigationViewService
     [MemberNotNull(nameof(_navigationView))]
     public void Initialize(NavigationView navigationView)
     {
-        _navigationView = navigationView;
+        InitializeMenuItems(navigationView);
+
+    }
+
+    private void InitializeMenuItems(NavigationView navigationView)
+    {
+        Reset();
+        _navigationView = navigationView ?? throw new ArgumentNullException(nameof(navigationView));
+        AddNavigationMenuItems();
         _navigationView.BackRequested += OnBackRequested;
         _navigationView.ItemInvoked += OnItemInvoked;
+    }
+
+
+
+    private void Reset()
+    {
+        if( _navigationView != null)
+        {
+            _navigationView.MenuItems?.Clear();
+            _navigationView.FooterMenuItems.Clear();
+            _navigationView.BackRequested -= OnBackRequested;
+            _navigationView.ItemInvoked -= OnItemInvoked;
+        }
+
+    }
+
+    private void AddNavigationMenuItems()
+    {
+        foreach (var group in DataSource.Instance.Groups.Where(i => !i.IsHideGroup))
+        {
+            var itemGroup = new NavigationViewItem()
+            {
+                Content = group.Title,
+                IsExpanded = group.IsExpanded,
+                Tag = group.UniqueId,
+                DataContext = group
+            };
+
+            var groupIcon = GetIcon(group.ImagePath, group.IconGlyph);
+            if (groupIcon != null)
+            {
+                itemGroup.Icon = groupIcon;
+            }
+
+            foreach (var item in group.Items.Where(i => !i.IsHideItem))
+            {
+                var itemInGroup = new NavigationViewItem()
+                {
+                    Content = item.Title,
+                    Tag = item.UniqueId,
+                    DataContext = item,
+                };
+
+                var itemIcon = GetIcon(item.ImagePath, item.IconGlyph);
+                if (itemIcon != null)
+                {
+                    itemInGroup.Icon = itemIcon;
+                }
+                itemGroup.MenuItems.Add(itemInGroup);
+            }
+            _navigationView?.MenuItems.Add(itemGroup);
+        }
+    }
+
+    private IconElement GetIcon(string imagePath, string iconGlyph)
+    {
+        if( string.IsNullOrEmpty(imagePath) && string.IsNullOrEmpty(iconGlyph))
+        {
+            return null;
+        }
+
+        if( !string.IsNullOrEmpty(iconGlyph))
+        {
+            return GetFontIcon(iconGlyph);
+        }
+
+        if( !string.IsNullOrEmpty(imagePath))
+        {
+            return new BitmapIcon()
+            {
+                UriSource = new Uri(imagePath, UriKind.RelativeOrAbsolute),
+                ShowAsMonochrome = false,
+            };
+        }
+        return null;
+    }
+
+    private FontIcon GetFontIcon(string glyph)
+    {
+        var fontIcon = new FontIcon();
+        if( !string.IsNullOrEmpty(glyph))
+        {
+            fontIcon.Glyph = glyph;
+        }
+        return fontIcon;
+
     }
 
     private void OnItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)

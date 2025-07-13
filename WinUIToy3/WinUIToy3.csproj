@@ -15,6 +15,90 @@
     <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
   </PropertyGroup>
   <ItemGroup>
+    <Content Remove="Assets\icon.ico" />
+    <Content Remove="Assets\icon.png" />
+    <Content Remove="Assets\NavViewMenu\AppData.json" />
+    <Content Remove="Assets\NavViewMenu\Icons\Acrylic.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\AppBarSeparator.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\autoSuggestBox.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\awake.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\behaviors.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\CalendarView.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\canvas.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\Clock.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\color.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\ColorPaletteResources.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\colorPicker.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\commandBar.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\ConnectedAnimation.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\contentDialog.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\CreateMultipleWindows.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\dataGrid.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\DatePicker.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\EasingFunction.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\Expander.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\extensions.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\external.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\fancyZones.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\fileExplorerPreview.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\FilePicker.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\FlipView.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\gravatar.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\Grid.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\GridView.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\HyperlinkButton.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\IconElement.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\imageResizer.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\ImplicitTransition.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\info.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\InfoBadge.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\InfoBar.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\InkToolbar.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\keyboardManager.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\Line.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\ListView.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\logo.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\NumberBox.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\oneDrive.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\optionsPageControl.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\PageTransition.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\ParallaxView.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\passwordBox.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\PipsPager.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\Pivot.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\powerRename.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\powerToys.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\powerToysRun.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\ProgressRing.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\RadioButton.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\RatingControl.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\RelativePanel.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\RepeatButton.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\RevealFocus.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\RichEditBox.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\ScrollView.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\ScrollViewer.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\segmented.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\SemanticZoom.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\settings.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\shield.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\shortcutGuide.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\SplitView.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\StackPanel.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\SwipeControl.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\switchPresenter.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\TextBlock.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\TextBox.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\theme.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\ThemeTransition.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\tint.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\ToggleButton.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\update.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\VariableSizedWrapGrid.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\Viewbox.png" />
+    <Content Remove="Assets\NavViewMenu\Icons\Workspaces.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="Views\SettingsPage.xaml" />
     <None Remove="Views\ShellPage.xaml" />
   </ItemGroup>
@@ -94,11 +178,259 @@
     <PublishReadyToRun Condition="'$(Configuration)' != 'Debug'">True</PublishReadyToRun>
     <PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
     <PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <EditorConfigFiles Remove="C:\workspace\WinUIToy3\WinUIToy3\.editorconfig" />
   </ItemGroup>
   <ItemGroup>
     <None Include="C:\workspace\WinUIToy3\WinUIToy3\.editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="Assets\NavViewMenu\Icons\Home.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Assets\NavViewMenu\AppData.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\Acrylic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\AppBarSeparator.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\autoSuggestBox.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\awake.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\behaviors.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\CalendarView.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\canvas.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\Clock.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\color.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\ColorPaletteResources.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\colorPicker.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\commandBar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\ConnectedAnimation.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\contentDialog.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\CreateMultipleWindows.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\dataGrid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\DatePicker.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\EasingFunction.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\Expander.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\extensions.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\external.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\fancyZones.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\fileExplorerPreview.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\FilePicker.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\FlipView.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\gravatar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\Grid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\GridView.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\HyperlinkButton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\IconElement.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\imageResizer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\ImplicitTransition.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\info.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\InfoBadge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\InfoBar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\InkToolbar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\keyboardManager.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\Line.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\ListView.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\NumberBox.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\oneDrive.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\optionsPageControl.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\PageTransition.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\ParallaxView.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\passwordBox.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\PipsPager.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\Pivot.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\powerRename.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\powerToys.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\powerToysRun.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\ProgressRing.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\RadioButton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\RatingControl.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\RelativePanel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\RepeatButton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\RevealFocus.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\RichEditBox.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\ScrollView.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\ScrollViewer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\segmented.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\SemanticZoom.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\settings.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\shield.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\shortcutGuide.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\SplitView.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\StackPanel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\SwipeControl.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\switchPresenter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\TextBlock.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\TextBox.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\theme.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\ThemeTransition.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\tint.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\ToggleButton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\update.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\VariableSizedWrapGrid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\Viewbox.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\NavViewMenu\Icons\Workspaces.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
