@@ -16,6 +16,8 @@ public class DataBaseInfo
 
     public string IconGlyph { get; set; } = string.Empty;
 
+    public string SectionId { get; set; } = string.Empty;
+
     public string PageId { get; set; } = string.Empty;
 
     public bool IsEnabled { get; set; } = true;

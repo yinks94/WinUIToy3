@@ -1,10 +1,16 @@
 ﻿{
   "Groups": [
-
     {
       "UniqueId": "Home",
-      "Title": "처음으로",
+      "Title": "홈으로",
       "ImagePath": "ms-appx:///Assets/NavViewMenu/Icons/Home.png",
+      "PageId": "WinUIToy3.Views.HomePage"
+    },
+    {
+      "UniqueId": "Menu1",
+      "Title": "첫번째",
+      "SectionId": "WinUIToy3.ViewModels.SectionViewModel",
+      "ImagePath": "ms-appx:///Assets/NavViewMenu/Icons/dataGrid.png",
       "Items": [
         {
           "UniqueId": "Menu11",
@@ -22,8 +28,8 @@
     },
 
     {
-      "UniqueId": "Home2",
-      "PageId": "WinUIToy3.Views.HomePage",
+      "UniqueId": "Menu2",
+      "SectionId": "WinUIToy3.ViewModels.SectionViewModel",
       "Title": "두번째",
       "ImagePath": "ms-appx:///Assets/NavViewMenu/Icons/DatePicker.png",
       "Items": [

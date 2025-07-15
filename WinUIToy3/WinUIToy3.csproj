@@ -100,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\SchoolPage.xaml" />
+    <None Remove="Views\SectionPage.xaml" />
     <None Remove="Views\SettingsPage.xaml" />
     <None Remove="Views\ShellPage.xaml" />
     <None Remove="Views\SubjectPage.xaml" />
@@ -434,6 +435,9 @@
     <None Update="Assets\NavViewMenu\Icons\Workspaces.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\SectionPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Views\SubjectPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -11,4 +11,9 @@ public class DataItem : DataBaseInfo
     public object Parameter { get; set; }
 
     public bool IsHideItem { get; set; } = false;
+
+    public override string ToString()
+    {
+        return $"{Title} ({UniqueId})";
+    }
 }

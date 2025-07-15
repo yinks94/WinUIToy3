@@ -160,21 +160,20 @@ public class NavigationViewService : INavigationViewService
             {
                 if (dataInfo.IsEnabled == false) return;
 
-                if (string.IsNullOrEmpty(dataInfo.PageId)) return;
-
                 try
                 {
-                    var pageKey = dataInfo.PageId;
-                    _navigationService.NavigateTo(pageKey);
-                    //var pageType = _pageService.GetPageType(pageKey);
-                    //if (pageType != null)
-                    //{
-                    //    _navigationService.NavigateTo(pageType.FullName!);
-                    //}
-                    //else
-                    //{
-                    //    Debug.WriteLine($"Page type for key '{pageKey}' not found.");
-                    //}
+
+                    if (!string.IsNullOrEmpty(dataInfo.SectionId))
+                    {
+                        _navigationService.NavigateTo(dataInfo.SectionId, dataInfo.UniqueId);
+                    }
+                    else if (!string.IsNullOrEmpty(dataInfo.PageId))
+                    {
+                        _navigationService.NavigateTo(dataInfo.PageId);
+                    }
+                    else
+                        return;
+
                 }
                 catch (Exception ex)
                 {
